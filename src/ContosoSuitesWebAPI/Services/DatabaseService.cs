@@ -35,11 +35,10 @@ public class DatabaseService : IDatabaseService
         return hotels;
     }
 
+
     [KernelFunction]
     [Description("Get all bookings for a single hotel.")]
-    public async Task<IEnumerable<Booking>> GetBookingsForHotel(
-        [Description("The ID of the hotel")] int hotelId
-        )
+    public async Task<IEnumerable<Booking>> GetBookingsForHotel(int hotelId)
     {
         var sql = "SELECT BookingID, CustomerID, HotelID, StayBeginDate, StayEndDate, NumberOfGuests FROM dbo.Booking WHERE HotelID = @HotelID";
         using var conn = new SqlConnection(
@@ -100,7 +99,7 @@ public class DatabaseService : IDatabaseService
 
     [KernelFunction]
     [Description("Get all bookings which do not have hotel rooms.")]
-    public async Task<IEnumerable<Booking>> GetBookingsMissingHotelRooms()
+    public async Task<IEnumerable<Booking>> GetBookingsMissingHotelRooms()    
     {
         var sql = """
             SELECT
