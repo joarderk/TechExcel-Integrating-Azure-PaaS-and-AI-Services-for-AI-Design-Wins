@@ -9,6 +9,8 @@ aiwins/
 .venv/
 .env/
 
+src/InfrastructureAsCode/
+
 secrets.toml
 1_Chat_with_Data_solution.py
 2_Api_Integration_solution.py
